@@ -1,4 +1,4 @@
-Yamoney-Scraper
+Quickie! Stock and Options Scraper
 ===============
 
 Financial stock and options data scraper project using Yahoo! Finance, written in Python 3
