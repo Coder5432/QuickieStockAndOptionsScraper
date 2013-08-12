@@ -5,7 +5,7 @@ Financial stock and options data scraper project using Yahoo! Finance, written i
 
 as of 8/8/2013, I'm still learning GIT.  so let me GET this stuff up here using GIT before you GIT too ornery about the fact that the files aren't online yet.
 
-This provides a tool for gathering both historical stock data from the Yahoo! finance API, but also a tool to scrape the current options prices and bidding data for any given listed stock.
+This provides a tool for gathering both historical stock data from the Yahoo! finance API, but also a tool to scrape the current options prices and bidding data for any given listed stock.  And on top of that, there's even a tool to look at the expected future values of options based on historical volatility!  Pretty neat, eh?
 
 
 ##Dependencies
