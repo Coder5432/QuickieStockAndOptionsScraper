@@ -1,12 +1,23 @@
 Quickie! Stock and Options Scraper
 ===============
 
-Financial stock and options data scraper project using Yahoo! Finance, written in Python 3
+A financial stock and options data scraper project using Yahoo! Finance, written in Python 3.
 
-as of 8/8/2013, I'm still learning GIT.  so let me GET this stuff up here using GIT before you GIT too ornery about the fact that the files aren't online yet.
+More documentation coming soon.  Also, this isn't done yet, coding wise, so hold your horses unless you're willing to trudge through the bugs.
 
-This provides a tool for gathering both historical stock data from the Yahoo! finance API, but also a tool to scrape the current options prices and bidding data for any given listed stock.  And on top of that, there's even a tool to look at the expected future values of options based on historical volatility!  Pretty neat, eh?
+This provides a tool for gathering both historical stock data from the Yahoo! finance API, but also a tool to scrape the current options prices and bidding data for any given listed stock.  And on top of that, there's even a tool to look at the expected future values of options based on historical price movements!  Pretty neat, eh?
 
+##Usage
+You may use this to do a couple different things.  Each of the three files included in this repo are responsible for a group of related tasks.  You may use the functions in optionsScraper.py to scrape and filter option chain data, with the latest prices for each option.  Example:
+
+To scrape options chain data, using optionsScraper.py:
+  scrapeOption("MSFT")
+  #[['MSFT', 'MSFT150117C00015000', 15.0, datetime.date(2015, 1, 17), 'Call', '17.10', -0.75, 'type 1'], ['MSFT', 'MSFT150117C00018000', 18.0, datetime.date(2015, 1, 17), 'Call', '14.85', 0.0, 'type 1'],.......]
+  #
+
+To scrape price history data, using priceHistoryScraper.py:
+  hist=scrapePriceHistory("GOOG",["Date","Adj Close"])
+  #[[datetime.datetime(2004, 8, 19, 0, 0), 100.34], [datetime.datetime(2004, 8, 20, 0, 0), 108.31],........]
 
 ##Dependencies
 
