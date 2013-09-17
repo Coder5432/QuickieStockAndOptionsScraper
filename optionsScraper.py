@@ -9,7 +9,7 @@ import datetime
 from re import search
 
 
-def scrapeEtf(etfName):
+def scrapeOptions(etfName):
     urlBase='http://finance.yahoo.com'
     #urlIndex is iterated at every different expiry month (when the expiry month links are traversed.)
     urlIndex=0
@@ -120,4 +120,3 @@ def scrapeLastUnderlyingPrice(symbol):
     print(date)
     price=float(superParent.contents[0].string)
     return [price, date]
-print(scrapeLastUnderlyingPrice("VXX"))

@@ -1,4 +1,4 @@
-from OptionsScraper import scrapeEtf, scrapeLastUnderlyingPrice
+from optionsScraper import scrapeOptions, scrapeLastUnderlyingPrice
 from priceHistoryScraper import scrapePriceHistory
 import datetime
 import matplotlib.pyplot as plt
@@ -31,7 +31,7 @@ def getRatios(priceHistory, spanMode, daySpan):
 ##        #gets the dateDifference in calendar days.
 ##        dateDifference=futureDate-currentDate
 ##        currentClose=float(priceHistory[i][1])
-##        futureClose=float(priceHistory[i+daySpan][1])
+##        futureClose=float(pric eHistory[i+daySpan][1])
 ##    priceRatio=futureClose/currentClose
 ##    #results array is made, indexed according to start date of each span.
 ##    ratioResultsEntry=[currentDate, dateDifference, priceRatio]
@@ -82,10 +82,13 @@ def printArray(array):
     for i in range(len(array)):
         print(array[i])
 
-def filterOptions(optionsArray, expiryYear='any', expiryMonth='any', expiryDay='any', callOrPut='any', strike='any', specialType='any'):
+def filterOptions(optionsArray, symbol='any',expiryYear='any', expiryMonth='any', expiryDay='any', callOrPut='any', strike='any', specialType='any'):
     acceptedEntries=[]
     for i in range(len(optionsArray)):
         disqualified=False
+        if symbol != 'any':
+            if str(optionsArray[i][1]) != symbol:
+                disqualified=True
         if expiryYear != 'any':
             if optionsArray[i][3].year != expiryYear:
                 disqualified=True
@@ -116,9 +119,8 @@ def getExpectedValue(option, ratios, currentUnderlyingPrice):
     
             
 #main()
-print(scrapeLastUnderlyingPrice("TSLA"))
-print('tesla')
-b=scrapeEtf("VXX")
-chosenOption=filterOptions(b,2015,1,17,"Put",17,"type 1")
+b=scrapeOptions("VXX")
+chosenOption=filterOptions(b,"VXX150117P00008000")[0]
+print(chosenOption)
 #daysToExpiry=getDaysToExpiry(88888888888888888888888888888888888888888888
 
